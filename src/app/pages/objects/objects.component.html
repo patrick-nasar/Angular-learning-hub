@@ -29,17 +29,17 @@
 
     <table *ngIf="users && users.length > 0" class="text-center capitalize">
         <tr>
-            <th>firstName</th>
-            <th>LastName</th>
-            <th>phoneNumber</th>
-            <th>sex</th>
+            <th class="px-3 text-left">firstName</th>
+            <th class="px-3 text-left">LastName</th>
+            <th class="px-3 text-left">phoneNumber</th>
+            <th class="px-3 text-left">sex</th>
         </tr>
         @for (user of users; track user; let i = $index) {
         <tr>
-            <td>{{user.firstName}}</td>
-            <td>{{user.LastName}}</td>
-            <td>{{user.phoneNumber}}</td>
-            <td>{{user.selectedSex}}</td>
+            <td class="px-3 text-left">{{user.firstName}}</td>
+            <td class="px-3 text-left">{{user.LastName}}</td>
+            <td class="px-3 text-left">{{user.phoneNumber}}</td>
+            <td class="px-3 text-left">{{user.selectedSex}}</td>
         </tr>
         }
     </table>

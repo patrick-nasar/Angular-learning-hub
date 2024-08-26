@@ -1,0 +1,28 @@
+<div *ngIf="data" class="lg:px-40">
+    <h2>Those are Fake Posts from dummyjson.com</h2>
+    <p>Number of posts: {{ data.limit }}</p>
+
+    <div class="py-10 divide-y-2">
+        @for (post of data.posts; track post; let i = $index){
+        <div class="py-5">
+            <h2 class="font-bold text-lg">{{post.title}}</h2>
+            <div class="flex items-center space-x-5">
+                @for (tag of post.tags; track tag;){
+                <p class="bg-slate-500 px-2 py-[2px] rounded-full text-white text-sm">{{tag}}</p>
+                }
+            </div>
+
+            <p>{{post.body}}</p>
+            <div class="flex items-center space-x-5 pt-3">
+                <p>Likes:{{post.reactions.likes}}</p>
+                <p>dislikes:{{post.reactions.dislikes}}</p>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>
+
+<div *ngIf="!data" class="text-center text-xl">
+    <p>Downloading data...</p>
+</div>
