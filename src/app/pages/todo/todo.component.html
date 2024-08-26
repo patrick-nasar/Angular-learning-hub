@@ -2,13 +2,17 @@
     <div class="space-y-10">
         <div class="space-x-5">
             <input #todoInput type="text">
-            <button (click)="saveInput(todoInput.value)">Save</button>
+            <button (click)="saveInput(todoInput) ">Save</button>
         </div>
-        <ul>
-            <li class="flex justify-between" *ngFor="let todo of todoList">
-                {{ todo }}
-                <button class="text-red-500">Delete</button>
+        <ol>
+            @for (todo of todoList; track todo; let i = $index) {
+            <li class="flex justify-between">
+                {{i+1}}. {{todo}}
+                <div class="space-x-2">
+                    <button class="text-red-500" (click)="DeleteTask(todo)">Delete</button>
+                </div>
             </li>
-        </ul>
+            }
+        </ol>
     </div>
 </div>

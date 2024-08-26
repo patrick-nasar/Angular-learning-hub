@@ -13,9 +13,15 @@ export class TodoComponent {
 
   todoList: String[] = [];
 
-  saveInput(value: string) {
-    this.todoList.push(value);
+  saveInput(inputElement: HTMLInputElement) {
+    this.todoList.push(inputElement.value);
     console.log('Stored value:', this.todoList);
+    inputElement.value = ''
+  }
+
+  DeleteTask(task: String) {
+    console.log(task)
+    this.todoList = this.todoList.filter(todo => todo != task)
   }
 
 }
