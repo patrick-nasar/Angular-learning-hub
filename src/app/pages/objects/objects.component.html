@@ -1,0 +1,48 @@
+<div class="flex flex-col gap-5 w-1/4 px-16">
+    <form>
+        <div>
+            <h2>FirstName</h2>
+            <input #firstName type="text">
+        </div>
+
+        <div>
+            <h2>LastName</h2>
+            <input #LastName type="text">
+        </div>
+
+        <div>
+            <h2>PhoneNumber</h2>
+            <input #phoneNumber type="number" value="0">
+        </div>
+
+        <h2>Sex</h2>
+        <div *ngFor="let option of sexOptions">
+            <input type="radio" [id]="option.id" [(ngModel)]="selectedSex" [value]="option.id" name="option">
+            <label [for]="option.id">{{option.name}}</label>
+        </div>
+
+        <button type="submit" class="border my-5 px-5 py-3"
+            (click)="submitForm(firstName.value, LastName.value, phoneNumber.valueAsNumber ,selectedSex)">Submit</button>
+    </form>
+
+    <p *ngIf="!users || users.length === 0">No data for now.</p>
+
+    <table *ngIf="users && users.length > 0" class="text-center capitalize">
+        <tr>
+            <th>firstName</th>
+            <th>LastName</th>
+            <th>phoneNumber</th>
+            <th>sex</th>
+        </tr>
+        @for (user of users; track user; let i = $index) {
+        <tr>
+            <td>{{user.firstName}}</td>
+            <td>{{user.LastName}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>{{user.selectedSex}}</td>
+        </tr>
+        }
+    </table>
+
+
+</div>
